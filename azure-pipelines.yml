@@ -23,6 +23,7 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
+    mavenDirectory: 'C:\Program Files\maven\apache-maven-3.9.3'
 - task: Docker@2
   inputs:
     command: 'buildAndPush'
