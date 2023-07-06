@@ -9,6 +9,14 @@ trigger:
 pool: Default
 
 steps:
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: "18"
+    jdkArchitectureOption: x64
+    jdkSourceOption: LocalDirectory
+    jdkFile: "C:\Users\jinwookim\Downloads\zulu-18.zip"
+    jdkDestinationDirectory: "C:\Users\jinwookim\Downloads\zulu"
+    cleanDestinationDirectory: true
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
