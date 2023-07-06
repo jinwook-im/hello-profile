@@ -27,7 +27,7 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.18'
     mavenVersionOption: 'Default'
-    mavenOptions: '-P blue -Dmaven.repo.local=C:\Program Files\maven\apache-maven-3.9.3'
+    mavenDirectory: 'C:\Program Files\maven\apache-maven-3.9.3'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
