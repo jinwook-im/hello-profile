@@ -7,31 +7,47 @@ trigger:
 - main
 
 pool: Default
-
-steps:
-- task: JavaToolInstaller@0
-  inputs:
-    versionSpec: "18"
-    jdkArchitectureOption: x64
-    jdkSourceOption: LocalDirectory
-    jdkFile: "C:\\\\Users\\jinwookim\\Downloads\\zulu-18.zip"
-    jdkDestinationDirectory: "C:\\\\Users\\jinwookim\\Downloads\\zulu"
-    cleanDestinationDirectory: true
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    goals: 'clean package'
-    options: '-P blue'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.18'
-    mavenVersionOption: 'Default'
-    mavenDirectory: 'C:\Program Files\maven\apache-maven-3.9.3'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sonarQubeRunAnalysis: false
-- task: Docker@2
-  inputs:
-    command: 'buildAndPush'
-    Dockerfile: 'dockerfile'
+stages:
+- stage: Build
+  displayName: Build Devops base image
+  jobs:
+  - job: Build_and_Push
+    steps:
+    - task: JavaToolInstaller@0
+      inputs:
+        versionSpec: "18"
+        jdkArchitectureOption: x64
+        jdkSourceOption: LocalDirectory
+        jdkFile: "C:\\\\Users\\jinwookim\\Downloads\\zulu-18.zip"
+        jdkDestinationDirectory: "C:\\\\Users\\jinwookim\\Downloads\\zulu"
+        cleanDestinationDirectory: true
+    - task: Maven@3
+      inputs:
+        mavenPomFile: 'pom.xml'
+        goals: 'clean package'
+        options: '-P blue'
+        publishJUnitResults: true
+        testResultsFiles: '**/surefire-reports/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '1.18'
+        mavenVersionOption: 'Default'
+        mavenDirectory: 'C:\Program Files\maven\apache-maven-3.9.3'
+        mavenAuthenticateFeed: false
+        effectivePomSkip: false
+        sonarQubeRunAnalysis: false
+    - task: Docker@2
+      inputs:
+        command: 'build'
+        Dockerfile: 'Dockerfile'
+        buildContext: '**'
+        tags: '$(Build.BuildId)'
+- stage: Push
+  displayName: Push Devops base image
+  jobs:
+  - job: Push
+    steps:
+    - task: Docker@2
+      inputs:
+        command: 'push'
+        tags: '$(Build.BuildId)'
+        containerRegistry: 'testdockergin.azurecr.io'
