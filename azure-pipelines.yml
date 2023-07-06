@@ -17,7 +17,7 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.17'
+    jdkVersionOption: '1.18'
     mavenVersionOption: 'Default'
     mavenOptions: '-P blue -Dmaven.repo.local=C:\Program Files\maven\apache-maven-3.9.3'
     mavenAuthenticateFeed: false
