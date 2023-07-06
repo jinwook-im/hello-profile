@@ -1,12 +1,16 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
-
 trigger:
 - main
 
 pool: Default
+
+variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '1e531f42-5362-4b4d-ba6c-dfd8bcaa3247'
+  imageRepository: 'pipelinetest'
+  containerRegistry: 'testdockergin.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)'
+
 stages:
 - stage: Build
   displayName: Build Devops base image
@@ -38,16 +42,21 @@ stages:
     - task: Docker@2
       inputs:
         command: 'build'
-        Dockerfile: 'Dockerfile'
+        Dockerfile: $(dockerfilePath)
         buildContext: '**'
-        tags: '$(Build.BuildId)'
+        tags: |
+          $(tag)
 - stage: Push
   displayName: Push Devops base image
   jobs:
   - job: Push
     steps:
     - task: Docker@2
+      displayName: Build and push an image to container registry
       inputs:
         command: 'push'
-        tags: '$(Build.BuildId)'
-        containerRegistry: 'testdockergin.azurecr.io'
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
