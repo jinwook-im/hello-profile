@@ -11,6 +11,7 @@ import org.springframework.test.context.ActiveProfiles;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@ActiveProfiles("blue")
 class ApiControllerTest {
     @Value(value="${local.server.port}")
     private int port;
