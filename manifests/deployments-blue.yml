@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: test
-          image: testdockergin.azurecr.io/test:44
+          image: testdockergin.azurecr.io/test:48
           ports:
             - containerPort: 8080
           env:

@@ -39,11 +39,3 @@ stages:
         mavenAuthenticateFeed: false
         effectivePomSkip: false
         sonarQubeRunAnalysis: false
-    - task: Docker@2
-      displayName: Build image
-      inputs:
-        containerRegistry: 'testdockergin'
-        repository: 'test'
-        command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
-        arguments: 'SPRING_PROFILES_ACTIVE=green'
