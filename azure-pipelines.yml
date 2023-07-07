@@ -39,13 +39,14 @@ stages:
         mavenAuthenticateFeed: false
         effectivePomSkip: false
         sonarQubeRunAnalysis: false
-    - task: Docker@2
+    - task: Bash@3
       inputs:
-        command: 'build'
-        Dockerfile: $(dockerfilePath)
-        buildContext: '**'
-        tags: |
-          $(tag)
+        targetType: 'inline'
+        script: |
+          # Write your commands here
+          
+          echo 'Docker build'
+          docker build -t hello:$(tag)
 - stage: Push
   displayName: Push Devops base image
   jobs:
