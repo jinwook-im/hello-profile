@@ -3,14 +3,6 @@ trigger:
 
 pool: Default
 
-variables:
-  # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '1e531f42-5362-4b4d-ba6c-dfd8bcaa3247'
-  imageRepository: 'pipelinetest'
-  containerRegistry: 'testdockergin.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
-
 stages:
 - stage: Build
   displayName: Build Devops base image
@@ -39,3 +31,10 @@ stages:
         mavenAuthenticateFeed: false
         effectivePomSkip: false
         sonarQubeRunAnalysis: false
+    - task: Docker@2
+      displayName: Build and Push image
+      inputs:
+        containerRegistry: 'testdockergin'
+        repository: 'test'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
