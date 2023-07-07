@@ -6,7 +6,7 @@ metadata:
     app: hello-blue
     status: blue
 spec:
-  replicas: 5
+  replicas: 10
   selector:
     matchLabels:
       app: hello-blue
