@@ -3,14 +3,6 @@ trigger:
 
 pool: Default
 
-variables:
-  # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '1e531f42-5362-4b4d-ba6c-dfd8bcaa3247'
-  imageRepository: 'pipelinetest'
-  containerRegistry: 'testdockergin.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
-
 stages:
 - stage: Build
   displayName: Build Devops base image
