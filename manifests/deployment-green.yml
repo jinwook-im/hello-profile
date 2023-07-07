@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-green-deployment
+  labels:
+    app: hello-green
+    status: green
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: hello-green
+  template:
+    metadata:
+      labels:
+        app: hello-green
+    spec:
+      containers:
+        - name: test
+          image: testdockergin.azurecr.io/test:44
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: green
