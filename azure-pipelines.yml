@@ -72,7 +72,8 @@ stages:
                   strategy: 'canary'
                   percentage: 25
                   manifests: |
-                    $(System.DefaultWorkingDirectory)/manifests-canary/deployments-blue.yml
+                    $(System.DefaultWorkingDirectory)/manifests-canary/deployment-blue.yml
+                    $(System.DefaultWorkingDirectory)/manifests-canary/service-blue.yml
                   containers: '$(containerRegistry)/$(imageRepository):$(tag)'
 - stage: PromoteRejectCanary
   displayName: Promote or Reject canary
