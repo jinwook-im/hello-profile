@@ -72,8 +72,8 @@ stages:
                   strategy: 'canary'
                   percentage: '25'
                   manifests: |
-                    $(System.DefaultWorkingDirectory)/_blue-green-test/manifests-canary/deployments-blue.yml
-                    $(System.DefaultWorkingDirectory)/_blue-green-test/manifests-canary/service-blue.yml
+                    $(System.DefaultWorkingDirectory)/manifests-canary/deployments-blue.yml
+                    $(System.DefaultWorkingDirectory)/manifests-canary/service-blue.yml
                   containers: '$(containerRegistry)/$(imageRepository):$(tag)'
 - stage: PromoteRejectCanary
   displayName: Promote or Reject canary
@@ -94,7 +94,7 @@ stages:
                 inputs:
                   action: 'promote'
                   strategy: 'canary'
-                  manifests: '$(Pipeline.Workspace)/manifests-canary/*'
+                  manifests: '$(System.DefaultWorkingDirectory)/manifests-canary/*'
                   containers: '$(containerRegistry)/$(imageRepository):$(tag)'
 - stage: RejectCanary
   displayName: Reject canary
@@ -115,4 +115,4 @@ stages:
                 inputs:
                   action: 'reject'
                   strategy: 'canary'
-                  manifests: '$(Pipeline.Workspace)/manifests-canary/*'
+                  manifests: '$(System.DefaultWorkingDirectory)/manifests-canary/*'
