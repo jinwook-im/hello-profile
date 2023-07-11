@@ -70,7 +70,7 @@ stages:
                 inputs:
                   action: 'deploy'
                   strategy: 'canary'
-                  percentage: '25'
+                  percentage: 25
                   manifests: |
                     $(System.DefaultWorkingDirectory)/manifests-canary/deployments-blue.yml
                     $(System.DefaultWorkingDirectory)/manifests-canary/service-blue.yml
