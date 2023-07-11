@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-blue-deployment
+  labels:
+    app: hello-blue
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: hello-blue
+  template:
+    metadata:
+      labels:
+        app: hello-blue
+    spec:
+      containers:
+        - name: test
+          image: testdockergin.azurecr.io/test:61
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: blue
