@@ -59,8 +59,7 @@ stages:
   jobs:
     - deployment: Deploycanary
       displayName: Deploy canary
-      pool:
-        vmImage: Default
+      pool: Default
       environment: 'test-env'
       strategy:
         runOnce:
@@ -84,8 +83,7 @@ stages:
   jobs:
     - deployment: PromoteCanary
       displayName: Promote Canary
-      pool:
-        vmImage: Default
+      pool: Default
       environment: 'test-env'
       strategy:
         runOnce:
@@ -106,8 +104,7 @@ stages:
   jobs:
     - deployment: RejectCanary
       displayName: Reject Canary
-      pool:
-        vmImage: Default
+      pool: Default
       environment: 'test-env'
       strategy:
         runOnce:
