@@ -4,7 +4,6 @@ metadata:
   name: hello-blue-deployment
   labels:
     app: hello-blue
-    status: blue
 spec:
   replicas: 10
   selector:
@@ -17,7 +16,7 @@ spec:
     spec:
       containers:
         - name: test
-          image: testdockergin.azurecr.io/test:52
+          image: testdockergin.azurecr.io/test:61
           ports:
             - containerPort: 8080
           env:

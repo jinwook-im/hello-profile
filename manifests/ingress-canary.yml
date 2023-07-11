@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/canary: "true"
+    #nginx.ingress.kubernetes.io/canary-by-header: "type"
+    #nginx.ingress.kubernetes.io/canary-by-header-value: "canary"
+    nginx.ingress.kubernetes.io/canary-weight: "20"
+  name: ingress-echo-canary
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: canary.test.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: service-green
+                port:
+                  name: http
