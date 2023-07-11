@@ -60,7 +60,7 @@ stages:
     - deployment: Deploycanary
       displayName: Deploy canary
       pool: Default
-      environment: 'test-env'
+      environment: 'test-env.test'
       strategy:
         runOnce:
           deploy:
@@ -84,7 +84,7 @@ stages:
     - deployment: PromoteCanary
       displayName: Promote Canary
       pool: Default
-      environment: 'test-env'
+      environment: 'test-env.test'
       strategy:
         runOnce:
           deploy:
@@ -105,7 +105,7 @@ stages:
     - deployment: RejectCanary
       displayName: Reject Canary
       pool: Default
-      environment: 'test-env'
+      environment: 'test-env.test'
       strategy:
         runOnce:
           deploy:
