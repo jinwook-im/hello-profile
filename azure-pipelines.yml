@@ -141,7 +141,7 @@ stages:
   jobs:
     - deployment: PromoteCanary
       displayName: 25% Promote Canary
-      environment: 'dh-aks-cluster.canary-test'
+      environment: 'dh-aks.canary-test'
       strategy:
         runOnce:
           deploy:
