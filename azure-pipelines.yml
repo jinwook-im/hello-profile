@@ -140,7 +140,7 @@ stages:
   condition: succeeded()
   jobs:
     - deployment: PromoteCanary
-      displayName: Promote Canary
+      displayName: 25% Promote Canary
       environment: 'dh-aks-cluster.canary-test'
       strategy:
         runOnce:
@@ -159,7 +159,7 @@ stages:
   condition: failed()
   jobs:
     - deployment: RejectCanary
-      displayName: Reject Canary
+      displayName: 25% Reject Canary
       environment: 'dh-aks-cluster.canary-test'
       strategy:
         runOnce:
