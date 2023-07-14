@@ -13,9 +13,6 @@ variables:
 stages:
   - stage: DeployCanary
     displayName: Deploy canary
-    dependsOn: Build
-    condition: succeeded()
-
     jobs:
       - deployment: Deploycanary
         displayName: Deploy canary
@@ -73,8 +70,6 @@ stages:
                     manifests: '$(System.DefaultWorkingDirectory)/manifests-canary/*'
   - stage: DeployCanary25
     displayName: Deploy canary
-    dependsOn: Build
-    condition: succeeded()
 
     jobs:
       - deployment: Deploycanary
