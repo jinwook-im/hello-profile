@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: test
-          image: testdockergin.azurecr.io/test:61
+          image: registryforadopoc.azurecr.io/hello-gin:4
           ports:
             - containerPort: 8080
           env:
