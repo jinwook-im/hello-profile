@@ -8,7 +8,7 @@ variables:
   dockerRegistryServiceConnection: 'acr-for-canary'
   imageRepository: 'hello-gin'
   containerRegistry: 'registryforadopoc.azurecr.io'
-  tag: '$(Build.BuildId)'
+  tag: '11'
   ### CD
 stages:
   - stage: DeployCanary
