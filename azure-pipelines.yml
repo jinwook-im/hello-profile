@@ -5,9 +5,9 @@ pool: gfc
 
 variables:
   imageName: 'hello-gin'
-  dockerRegistryServiceConnection: 'testdockergin'
+  dockerRegistryServiceConnection: 'resource-group-for-poc'
   imageRepository: 'hello-gin'
-  containerRegistry: 'testdockergin.azurecr.io'
+  containerRegistry: 'registryforadopoc.azurecr.io'
   tag: '$(Build.BuildId)'
 
 
