@@ -59,7 +59,7 @@ stages:
   jobs:
     - deployment: Deploycanary
       displayName: Deploy canary
-      environment: 'dh-aks-cluster.canary-test'
+      environment: 'dh-aks.canary-test'
       strategy:
         runOnce:
           deploy:
@@ -81,7 +81,7 @@ stages:
   jobs:
     - deployment: PromoteCanary
       displayName: Promote Canary
-      environment: 'dh-aks-cluster.canary-test'
+      environment: 'dh-aks.canary-test'
       strategy:
         runOnce:
           deploy:
@@ -100,7 +100,7 @@ stages:
   jobs:
     - deployment: RejectCanary
       displayName: Reject Canary
-      environment: 'dh-aks-cluster.canary-test'
+      environment: 'dh-aks.canary-test'
       strategy:
         runOnce:
           deploy:
@@ -119,7 +119,7 @@ stages:
   jobs:
     - deployment: Deploycanary
       displayName: Deploy canary
-      environment: 'dh-aks-cluster.canary-test'
+      environment: 'dh-aks.canary-test'
       strategy:
         runOnce:
           deploy:
@@ -160,7 +160,7 @@ stages:
   jobs:
     - deployment: RejectCanary
       displayName: 25% Reject Canary
-      environment: 'dh-aks-cluster.canary-test'
+      environment: 'dh-aks.canary-test'
       strategy:
         runOnce:
           deploy:
