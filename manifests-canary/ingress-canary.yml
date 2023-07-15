@@ -3,10 +3,10 @@ kind: Ingress
 metadata:
   annotations:
     ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/canary: "true"
+    #nginx.ingress.kubernetes.io/canary: "true"
     #nginx.ingress.kubernetes.io/canary-by-header: "type"
     #nginx.ingress.kubernetes.io/canary-by-header-value: "canary"
-    nginx.ingress.kubernetes.io/canary-weight: "20"
+    #nginx.ingress.kubernetes.io/canary-weight: "20"
   name: ingress-echo-canary
 spec:
   ingressClassName: nginx
