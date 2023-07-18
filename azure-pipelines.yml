@@ -23,7 +23,7 @@ stages:
         versionSpec: "18"
         jdkArchitectureOption: x64
         jdkSourceOption: LocalDirectory
-        jdkFile: "C:\\\\Users\\jinwookim\\Downloads\\zulu-18.zip"
+        jdkFile: "C:\\\\Users\\jinwookim\\Downloads\\zulu-19.zip"
         jdkDestinationDirectory: "C:\\\\Users\\jinwookim\\Downloads\\zulu"
         cleanDestinationDirectory: true
     - task: Maven@3
