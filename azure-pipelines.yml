@@ -20,7 +20,7 @@ stages:
     steps:
     - task: JavaToolInstaller@0
       inputs:
-        versionSpec: "18"
+        versionSpec: "19"
         jdkArchitectureOption: x64
         jdkSourceOption: LocalDirectory
         jdkFile: "C:\\\\Users\\jinwookim\\Downloads\\zulu-19.zip"
