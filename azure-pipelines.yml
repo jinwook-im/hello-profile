@@ -34,7 +34,7 @@ stages:
         publishJUnitResults: true
         testResultsFiles: '**/surefire-reports/TEST-*.xml'
         javaHomeOption: 'JDKVersion'
-        jdkVersionOption: '1.18'
+        jdkVersionOption: '1.19'
         mavenVersionOption: 'Default'
         mavenDirectory: 'C:\Program Files\maven\apache-maven-3.9.3'
         mavenAuthenticateFeed: false
