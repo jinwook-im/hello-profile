@@ -1,7 +1,7 @@
 trigger:
 - dev
 
-pool: gfc
+pool: jw-home
 
 variables:
   imageName: 'hello-gin'
