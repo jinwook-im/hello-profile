@@ -11,6 +11,8 @@ spec:
       app: hello-blue
   template:
     metadata:
+      annotations:
+        prometheus.io/scrape: "true"
       labels:
         app: hello-blue
     spec:
