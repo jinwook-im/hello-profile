@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-blue-deployment
+  name: hello-deployment
   labels:
-    app: hello-blue
+    app: hello
 spec:
   replicas: 10
   selector:
     matchLabels:
-      app: hello-blue
+      app: hello
   template:
     metadata:
       annotations:
         prometheus.io/scrape: "true"
       labels:
-        app: hello-blue
+        app: hello
     spec:
       containers:
         - name: test
